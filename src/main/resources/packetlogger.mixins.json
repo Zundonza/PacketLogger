@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "ru.zundonza.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "PacketEventMixin"
+  ],
+  "client": [
+    "KeyEventMixin",
+    "MinecraftClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

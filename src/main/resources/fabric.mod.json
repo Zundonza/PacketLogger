@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "packetlogger",
+  "version": "${version}",
+
+  "name": "PacketLogger",
+  "description": "Простая библиотека для просмотра отправляемых/принимаемых пакетов через ImGUI интерфейс",
+  "authors": [
+    "Zundonza"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Zundonza/",
+    "sources": ""
+  },
+
+  "license": "CC0-1.0",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ru.zundonza.PacketLogger"
+    ]
+  },
+  "mixins": [
+    "packetlogger.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.17",
+    "minecraft": "~1.20",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

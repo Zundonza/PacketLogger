@@ -1,0 +1,265 @@
+package ru.zundonza.network;
+
+import net.minecraft.network.packet.*;
+import net.minecraft.network.packet.c2s.common.*;
+import net.minecraft.network.packet.c2s.config.ReadyC2SPacket;
+import net.minecraft.network.packet.c2s.handshake.HandshakeC2SPacket;
+import net.minecraft.network.packet.c2s.login.*;
+import net.minecraft.network.packet.c2s.play.*;
+import net.minecraft.network.packet.c2s.query.*;
+import net.minecraft.network.packet.s2c.common.*;
+import net.minecraft.network.packet.s2c.config.*;
+import net.minecraft.network.packet.s2c.custom.*;
+import net.minecraft.network.packet.s2c.login.*;
+import net.minecraft.network.packet.s2c.play.*;
+import net.minecraft.network.packet.s2c.query.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class PacketNameMapper {
+
+    public static final Map<Class<?>, String> NAME_MAP = new HashMap<>();
+
+    static {
+        // c2s/common
+        NAME_MAP.put(ClientOptionsC2SPacket.class, "ClientOptions");
+        NAME_MAP.put(CommonPongC2SPacket.class, "CommonPong");
+        NAME_MAP.put(CustomPayloadC2SPacket.class, "CustomPayload");
+        NAME_MAP.put(KeepAliveC2SPacket.class, "KeepAlive");
+        NAME_MAP.put(ResourcePackStatusC2SPacket.class, "ResourcePackStatus");
+        NAME_MAP.put(SyncedClientOptions.class, "SyncedClientOptions");
+
+        // c2s/config
+        NAME_MAP.put(ReadyC2SPacket.class, "Ready");
+
+        // c2s/handshake
+        NAME_MAP.put(HandshakeC2SPacket.class, "Handshake");
+
+        // c2s/login
+        NAME_MAP.put(EnterConfigurationC2SPacket.class, "EnterConfiguration");
+        NAME_MAP.put(LoginHelloC2SPacket.class, "LoginHello");
+        NAME_MAP.put(LoginKeyC2SPacket.class, "LoginKey");
+        NAME_MAP.put(LoginQueryResponseC2SPacket.class, "LoginQueryResponse");
+
+        // c2s/play
+        NAME_MAP.put(AcknowledgeChunksC2SPacket.class, "AcknowledgeChunks");
+        NAME_MAP.put(AcknowledgeReconfigurationC2SPacket.class, "AcknowledgeReconfiguration");
+        NAME_MAP.put(AdvancementTabC2SPacket.class, "AdvancementTab");
+        NAME_MAP.put(BoatPaddleStateC2SPacket.class, "BoatPaddleState");
+        NAME_MAP.put(BookUpdateC2SPacket.class, "BookUpdate");
+        NAME_MAP.put(ButtonClickC2SPacket.class, "ButtonClick");
+        NAME_MAP.put(ChatMessageC2SPacket.class, "ChatMessage");
+        NAME_MAP.put(ClickSlotC2SPacket.class, "ClickSlot");
+        NAME_MAP.put(ClientCommandC2SPacket.class, "ClientCommand");
+        NAME_MAP.put(ClientStatusC2SPacket.class, "ClientStatus");
+        NAME_MAP.put(CloseHandledScreenC2SPacket.class, "CloseHandledScreen");
+        NAME_MAP.put(CommandExecutionC2SPacket.class, "CommandExecution");
+        NAME_MAP.put(CraftRequestC2SPacket.class, "CraftRequest");
+        NAME_MAP.put(CreativeInventoryActionC2SPacket.class, "CreativeInventoryAction");
+        NAME_MAP.put(HandSwingC2SPacket.class, "HandSwing");
+        NAME_MAP.put(JigsawGeneratingC2SPacket.class, "JigsawGenerating");
+        NAME_MAP.put(MessageAcknowledgmentC2SPacket.class, "MessageAcknowledgment");
+        NAME_MAP.put(PickFromInventoryC2SPacket.class, "PickFromInventory");
+        NAME_MAP.put(PlayerActionC2SPacket.class, "PlayerAction");
+        NAME_MAP.put(PlayerInputC2SPacket.class, "PlayerInput");
+        NAME_MAP.put(PlayerInteractBlockC2SPacket.class, "PlayerInteractBlock");
+        NAME_MAP.put(PlayerInteractEntityC2SPacket.class, "PlayerInteractEntity");
+        NAME_MAP.put(PlayerInteractItemC2SPacket.class, "PlayerInteractItem");
+        NAME_MAP.put(PlayerMoveC2SPacket.class, "PlayerMove");
+        NAME_MAP.put(PlayerMoveC2SPacket.Full.class, "PlayerMove.Full");
+        NAME_MAP.put(PlayerMoveC2SPacket.LookAndOnGround.class, "PlayerMove.LookAndOnGround");
+        NAME_MAP.put(PlayerMoveC2SPacket.OnGroundOnly.class, "PlayerMove.OnGroundOnly");
+        NAME_MAP.put(PlayerMoveC2SPacket.PositionAndOnGround.class, "PlayerMove.PositionAndOnGround");
+        NAME_MAP.put(PlayerSessionC2SPacket.class, "PlayerSession");
+        NAME_MAP.put(QueryBlockNbtC2SPacket.class, "QueryBlockNbt");
+        NAME_MAP.put(QueryEntityNbtC2SPacket.class, "QueryEntityNbt");
+        NAME_MAP.put(RecipeBookDataC2SPacket.class, "RecipeBookData");
+        NAME_MAP.put(RecipeCategoryOptionsC2SPacket.class, "RecipeCategoryOptions");
+        NAME_MAP.put(RenameItemC2SPacket.class, "RenameItem");
+        NAME_MAP.put(RequestCommandCompletionsC2SPacket.class, "RequestCommandCompletions");
+        NAME_MAP.put(SelectMerchantTradeC2SPacket.class, "SelectMerchantTrade");
+        NAME_MAP.put(SlotChangedStateC2SPacket.class, "SlotChangedState");
+        NAME_MAP.put(SpectatorTeleportC2SPacket.class, "SpectatorTeleport");
+        NAME_MAP.put(TeleportConfirmC2SPacket.class, "TeleportConfirm");
+        NAME_MAP.put(UpdateBeaconC2SPacket.class, "UpdateBeacon");
+        NAME_MAP.put(UpdateCommandBlockC2SPacket.class, "UpdateCommandBlock");
+        NAME_MAP.put(UpdateCommandBlockMinecartC2SPacket.class, "UpdateCommandBlockMinecart");
+        NAME_MAP.put(UpdateDifficultyC2SPacket.class, "UpdateDifficulty");
+        NAME_MAP.put(UpdateDifficultyLockC2SPacket.class, "UpdateDifficultyLock");
+        NAME_MAP.put(UpdateJigsawC2SPacket.class, "UpdateJigsaw");
+        NAME_MAP.put(UpdatePlayerAbilitiesC2SPacket.class, "UpdatePlayerAbilities");
+        NAME_MAP.put(UpdateSelectedSlotC2SPacket.class, "UpdateSelectedSlot");
+        NAME_MAP.put(UpdateSignC2SPacket.class, "UpdateSign");
+        NAME_MAP.put(UpdateStructureBlockC2SPacket.class, "UpdateStructureBlock");
+        NAME_MAP.put(VehicleMoveC2SPacket.class, "VehicleMove");
+
+        // c2s/query
+        NAME_MAP.put(QueryPingC2SPacket.class, "QueryPing");
+        NAME_MAP.put(QueryRequestC2SPacket.class, "QueryRequest");
+
+        // s2c/common
+        NAME_MAP.put(CommonPingS2CPacket.class, "CommonPing");
+        NAME_MAP.put(CustomPayloadS2CPacket.class, "CustomPayload");
+        NAME_MAP.put(DisconnectS2CPacket.class, "Disconnect");
+        NAME_MAP.put(KeepAliveS2CPacket.class, "KeepAlive");
+        NAME_MAP.put(ResourcePackRemoveS2CPacket.class, "ResourcePackRemove");
+        NAME_MAP.put(ResourcePackSendS2CPacket.class, "ResourcePackSend");
+        NAME_MAP.put(SynchronizeTagsS2CPacket.class, "SynchronizeTags");
+
+        // s2c/config
+        NAME_MAP.put(DynamicRegistriesS2CPacket.class, "DynamicRegistries");
+        NAME_MAP.put(FeaturesS2CPacket.class, "Features");
+        NAME_MAP.put(ReadyS2CPacket.class, "Ready");
+
+        // s2c/custom
+        NAME_MAP.put(DebugBeeCustomPayload.class, "DebugBee");
+        NAME_MAP.put(DebugBrainCustomPayload.class, "DebugBrain");
+        NAME_MAP.put(DebugBreezeCustomPayload.class, "DebugBreeze");
+        NAME_MAP.put(DebugGameEventCustomPayload.class, "DebugGameEvent");
+        NAME_MAP.put(DebugGameEventListenersCustomPayload.class, "DebugGameEventListeners");
+        NAME_MAP.put(DebugGameTestAddMarkerCustomPayload.class, "DebugGameTestAddMarker");
+        NAME_MAP.put(DebugGameTestClearCustomPayload.class, "DebugGameTestClear");
+        NAME_MAP.put(DebugGoalSelectorCustomPayload.class, "DebugGoalSelector");
+        NAME_MAP.put(DebugHiveCustomPayload.class, "DebugHive");
+        NAME_MAP.put(DebugNeighborsUpdateCustomPayload.class, "DebugNeighborsUpdate");
+        NAME_MAP.put(DebugPathCustomPayload.class, "DebugPath");
+        NAME_MAP.put(DebugPoiAddedCustomPayload.class, "DebugPoiAdded");
+        NAME_MAP.put(DebugPoiRemovedCustomPayload.class, "DebugPoiRemoved");
+        NAME_MAP.put(DebugPoiTicketCountCustomPayload.class, "DebugPoiTicketCount");
+        NAME_MAP.put(DebugRaidsCustomPayload.class, "DebugRaids");
+        NAME_MAP.put(DebugStructuresCustomPayload.class, "DebugStructures");
+        NAME_MAP.put(DebugVillageSectionsCustomPayload.class, "DebugVillageSections");
+        NAME_MAP.put(DebugWorldgenAttemptCustomPayload.class, "DebugWorldgenAttempt");
+
+        // s2c/login
+        NAME_MAP.put(LoginCompressionS2CPacket.class, "LoginCompression");
+        NAME_MAP.put(LoginDisconnectS2CPacket.class, "LoginDisconnect");
+        NAME_MAP.put(LoginHelloS2CPacket.class, "LoginHello");
+        NAME_MAP.put(LoginQueryRequestS2CPacket.class, "LoginQueryRequest");
+        NAME_MAP.put(LoginSuccessS2CPacket.class, "LoginSuccess");
+
+        // s2c/play
+        NAME_MAP.put(EntityS2CPacket.MoveRelative.class, "EntityMoveRelative");
+        NAME_MAP.put(AdvancementUpdateS2CPacket.class, "AdvancementUpdate");
+        NAME_MAP.put(BlockBreakingProgressS2CPacket.class, "BlockBreakingProgress");
+        NAME_MAP.put(BlockEntityUpdateS2CPacket.class, "BlockEntityUpdate");
+        NAME_MAP.put(BlockEventS2CPacket.class, "BlockEvent");
+        NAME_MAP.put(BlockUpdateS2CPacket.class, "BlockUpdate");
+        NAME_MAP.put(BossBarS2CPacket.class, "BossBar");
+        NAME_MAP.put(BundleS2CPacket.class, "Bundle");
+        NAME_MAP.put(ChatMessageS2CPacket.class, "ChatMessage");
+        NAME_MAP.put(ChatSuggestionsS2CPacket.class, "ChatSuggestions");
+        NAME_MAP.put(ChunkBiomeDataS2CPacket.class, "ChunkBiomeData");
+        NAME_MAP.put(ChunkDataS2CPacket.class, "ChunkData");
+        NAME_MAP.put(ChunkDeltaUpdateS2CPacket.class, "ChunkDeltaUpdate");
+        NAME_MAP.put(ChunkLoadDistanceS2CPacket.class, "ChunkLoadDistance");
+        NAME_MAP.put(ChunkRenderDistanceCenterS2CPacket.class, "ChunkRenderDistanceCenter");
+        NAME_MAP.put(ChunkSentS2CPacket.class, "ChunkSent");
+        NAME_MAP.put(ClearTitleS2CPacket.class, "ClearTitle");
+        NAME_MAP.put(CloseScreenS2CPacket.class, "CloseScreen");
+        NAME_MAP.put(CommandSuggestionsS2CPacket.class, "CommandSuggestions");
+        NAME_MAP.put(CommandTreeS2CPacket.class, "CommandTree");
+        NAME_MAP.put(CommonPlayerSpawnInfo.class, "CommonPlayerSpawnInfo");
+        NAME_MAP.put(CooldownUpdateS2CPacket.class, "CooldownUpdate");
+        NAME_MAP.put(CraftFailedResponseS2CPacket.class, "CraftFailedResponse");
+        NAME_MAP.put(DamageTiltS2CPacket.class, "DamageTilt");
+        NAME_MAP.put(DeathMessageS2CPacket.class, "DeathMessage");
+        NAME_MAP.put(DifficultyS2CPacket.class, "Difficulty");
+        NAME_MAP.put(EndCombatS2CPacket.class, "EndCombat");
+        NAME_MAP.put(EnterCombatS2CPacket.class, "EnterCombat");
+        NAME_MAP.put(EnterReconfigurationS2CPacket.class, "EnterReconfiguration");
+        NAME_MAP.put(EntitiesDestroyS2CPacket.class, "EntitiesDestroy");
+        NAME_MAP.put(EntityAnimationS2CPacket.class, "EntityAnimation");
+        NAME_MAP.put(EntityAttachS2CPacket.class, "EntityAttach");
+        NAME_MAP.put(EntityAttributesS2CPacket.class, "EntityAttributes");
+        NAME_MAP.put(EntityDamageS2CPacket.class, "EntityDamage");
+        NAME_MAP.put(EntityEquipmentUpdateS2CPacket.class, "EntityEquipmentUpdate");
+        NAME_MAP.put(EntityPassengersSetS2CPacket.class, "EntityPassengersSet");
+        NAME_MAP.put(EntityPositionS2CPacket.class, "EntityPosition");
+        NAME_MAP.put(EntityS2CPacket.class, "Entity");
+        NAME_MAP.put(EntitySetHeadYawS2CPacket.class, "EntitySetHeadYaw");
+        NAME_MAP.put(EntitySpawnS2CPacket.class, "EntitySpawn");
+        NAME_MAP.put(EntityStatusEffectS2CPacket.class, "EntityStatusEffect");
+        NAME_MAP.put(EntityStatusS2CPacket.class, "EntityStatus");
+        NAME_MAP.put(EntityTrackerUpdateS2CPacket.class, "EntityTrackerUpdate");
+        NAME_MAP.put(EntityVelocityUpdateS2CPacket.class, "EntityVelocityUpdate");
+        NAME_MAP.put(ExperienceBarUpdateS2CPacket.class, "ExperienceBarUpdate");
+        NAME_MAP.put(ExperienceOrbSpawnS2CPacket.class, "ExperienceOrbSpawn");
+        NAME_MAP.put(ExplosionS2CPacket.class, "Explosion");
+        NAME_MAP.put(GameJoinS2CPacket.class, "GameJoin");
+        NAME_MAP.put(GameMessageS2CPacket.class, "GameMessage");
+        NAME_MAP.put(GameStateChangeS2CPacket.class, "GameStateChange");
+        NAME_MAP.put(HealthUpdateS2CPacket.class, "HealthUpdate");
+        NAME_MAP.put(InventoryS2CPacket.class, "Inventory");
+        NAME_MAP.put(ItemPickupAnimationS2CPacket.class, "ItemPickupAnimation");
+        NAME_MAP.put(LightUpdateS2CPacket.class, "LightUpdate");
+        NAME_MAP.put(LookAtS2CPacket.class, "LookAt");
+        NAME_MAP.put(MapUpdateS2CPacket.class, "MapUpdate");
+        NAME_MAP.put(NbtQueryResponseS2CPacket.class, "NbtQueryResponse");
+        NAME_MAP.put(OpenHorseScreenS2CPacket.class, "OpenHorseScreen");
+        NAME_MAP.put(OpenScreenS2CPacket.class, "OpenScreen");
+        NAME_MAP.put(OpenWrittenBookS2CPacket.class, "OpenWrittenBook");
+        NAME_MAP.put(OverlayMessageS2CPacket.class, "OverlayMessage");
+        NAME_MAP.put(ParticleS2CPacket.class, "Particle");
+        NAME_MAP.put(PlaySoundFromEntityS2CPacket.class, "PlaySoundFromEntity");
+        NAME_MAP.put(PlaySoundS2CPacket.class, "PlaySound");
+        NAME_MAP.put(PlayerAbilitiesS2CPacket.class, "PlayerAbilities");
+        NAME_MAP.put(PlayerActionResponseS2CPacket.class, "PlayerActionResponse");
+        NAME_MAP.put(PlayerListHeaderS2CPacket.class, "PlayerListHeader");
+        NAME_MAP.put(PlayerListS2CPacket.class, "PlayerList");
+        NAME_MAP.put(PlayerPositionLookS2CPacket.class, "PlayerPositionLook");
+        NAME_MAP.put(PlayerRemoveS2CPacket.class, "PlayerRemove");
+        NAME_MAP.put(PlayerRespawnS2CPacket.class, "PlayerRespawn");
+        NAME_MAP.put(PlayerSpawnPositionS2CPacket.class, "PlayerSpawnPosition");
+        NAME_MAP.put(ProfilelessChatMessageS2CPacket.class, "ProfilelessChatMessage");
+        NAME_MAP.put(RemoveEntityStatusEffectS2CPacket.class, "RemoveEntityStatusEffect");
+        NAME_MAP.put(RemoveMessageS2CPacket.class, "RemoveMessage");
+        NAME_MAP.put(ScoreboardDisplayS2CPacket.class, "ScoreboardDisplay");
+        NAME_MAP.put(ScoreboardObjectiveUpdateS2CPacket.class, "ScoreboardObjectiveUpdate");
+        NAME_MAP.put(ScoreboardScoreResetS2CPacket.class, "ScoreboardScoreReset");
+        NAME_MAP.put(ScoreboardScoreUpdateS2CPacket.class, "ScoreboardScoreUpdate");
+        NAME_MAP.put(ScreenHandlerPropertyUpdateS2CPacket.class, "ScreenHandlerPropertyUpdate");
+        NAME_MAP.put(ScreenHandlerSlotUpdateS2CPacket.class, "ScreenHandlerSlotUpdate");
+        NAME_MAP.put(SelectAdvancementTabS2CPacket.class, "SelectAdvancementTab");
+        NAME_MAP.put(ServerMetadataS2CPacket.class, "ServerMetadata");
+        NAME_MAP.put(SetCameraEntityS2CPacket.class, "SetCameraEntity");
+        NAME_MAP.put(SetTradeOffersS2CPacket.class, "SetTradeOffers");
+        NAME_MAP.put(SignEditorOpenS2CPacket.class, "SignEditorOpen");
+        NAME_MAP.put(SimulationDistanceS2CPacket.class, "SimulationDistance");
+        NAME_MAP.put(StartChunkSendS2CPacket.class, "StartChunkSend");
+        NAME_MAP.put(StatisticsS2CPacket.class, "Statistics");
+        NAME_MAP.put(StopSoundS2CPacket.class, "StopSound");
+        NAME_MAP.put(SubtitleS2CPacket.class, "Subtitle");
+        NAME_MAP.put(SynchronizeRecipesS2CPacket.class, "SynchronizeRecipes");
+        NAME_MAP.put(TeamS2CPacket.class, "Team");
+        NAME_MAP.put(TickStepS2CPacket.class, "TickStep");
+        NAME_MAP.put(TitleFadeS2CPacket.class, "TitleFade");
+        NAME_MAP.put(TitleS2CPacket.class, "Title");
+        NAME_MAP.put(UnloadChunkS2CPacket.class, "UnloadChunk");
+        NAME_MAP.put(UnlockRecipesS2CPacket.class, "UnlockRecipes");
+        NAME_MAP.put(UpdateSelectedSlotS2CPacket.class, "UpdateSelectedSlot");
+        NAME_MAP.put(UpdateTickRateS2CPacket.class, "UpdateTickRate");
+        NAME_MAP.put(VehicleMoveS2CPacket.class, "VehicleMove");
+        NAME_MAP.put(WorldBorderCenterChangedS2CPacket.class, "WorldBorderCenterChanged");
+        NAME_MAP.put(WorldBorderInitializeS2CPacket.class, "WorldBorderInitialize");
+        NAME_MAP.put(WorldBorderInterpolateSizeS2CPacket.class, "WorldBorderInterpolateSize");
+        NAME_MAP.put(WorldBorderSizeChangedS2CPacket.class, "WorldBorderSizeChanged");
+        NAME_MAP.put(WorldBorderWarningBlocksChangedS2CPacket.class, "WorldBorderWarningBlocksChanged");
+        NAME_MAP.put(WorldBorderWarningTimeChangedS2CPacket.class, "WorldBorderWarningTimeChanged");
+        NAME_MAP.put(WorldEventS2CPacket.class, "WorldEvent");
+        NAME_MAP.put(WorldTimeUpdateS2CPacket.class, "WorldTimeUpdate");
+
+        // s2c/query
+        NAME_MAP.put(PingResultS2CPacket.class, "PingResult");
+        NAME_MAP.put(QueryResponseS2CPacket.class, "QueryResponse");
+
+        // Other packets
+        NAME_MAP.put(BrandCustomPayload.class, "BrandCustomPayload");
+        NAME_MAP.put(BundlePacket.class, "Bundle");
+        NAME_MAP.put(BundleSplitterPacket.class, "BundleSplitter");
+        NAME_MAP.put(CustomPayload.class, "CustomPayload");
+        NAME_MAP.put(UnknownCustomPayload.class, "UnknownCustomPayload");
+    }
+
+}
